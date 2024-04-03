@@ -48,10 +48,10 @@
                 </div>
             </section>
             <section class="section-contacts">
-                <div class="contacts">
-                    <img class="img" src="./img/avatar_2.jpg" alt="">
-                    <ul class="list-name">
-                        <li><strong>Michele</strong></li>
+                <div v-for="(contact,i) in contacts"class="contacts">
+                    <img class="img" :src="contact.avatar" alt="">
+                    <ul  class="list-name">
+                        <li><strong> {{ contact.name }} </strong></li>
                         <li>Lorem ipsum, dolor sit</li>
                     </ul>
                     <span class="time">16:30</span>
