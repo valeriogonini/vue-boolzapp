@@ -48,7 +48,7 @@
                 </div>
             </section>
             <section class="section-contacts">
-                <div v-for="(contact,i) in contacts"class="contacts">
+                <div v-for="(contact,i) in contacts" @click="currentChat = i" class="contacts">
                     <img class="img" :src="contact.avatar" alt="">
                     <ul  class="list-name">
                         <li><strong> {{ contact.name }} </strong></li>
@@ -120,9 +120,9 @@
 
             <section class="header header-main">
                 <div class="contacts-main">
-                    <img class="img" src="./img/avatar_2.jpg" alt="">
+                    <img class="img" :src="contacts[currentChat].avatar" alt="">
                     <ul class="list-chat">
-                        <li><strong>Michele</strong></li>
+                        <li><strong>{{ contacts[currentChat].name }}</strong></li>
                         <li>Ultimo accesso oggi alle 16:23</li>
                     </ul>
                 </div>
@@ -135,23 +135,25 @@
 
             </section>
             <section class="main">
-                <div class="chat">
-                    <div class="message">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde illo quam aperiam
-                            cupiditate omnis est quis voluptatum debitis dolorum </p>
+                <div  :class="message.status === 'sent' ? 'chat':'chat-2'":  v-for="(message,i) in contacts[currentChat].messages">
+                    <div class="message" :class="message.status ==='sent' ? 'bg-green':'message-background'">
+                        <p>
+                            {{message.message}}
+                        </p>
                         <span class="time-chat">16:30</span>
                     </div>
                 </div>
-                <div class="chat-2">
-                    <div class="message message-background">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde illo quam aperiam
-                            cupiditate omnis est quis voluptatum debitis dolorum </p>
+                <!-- <div class="chat-2">
+                    <div class="message message-background" >
+                        <p v-for="(message,i) in contacts[currentChat].messages" >
+                            {{message.message}}
+                        </p>
                         <span class="time-chat">16:30</span>
                     </div>
 
 
 
-                </div>
+                </div> -->
 
 
             </section>

@@ -147,7 +147,8 @@ body {
 .header-main {
     align-items: center;
     justify-content: space-between;
-    display: flex
+    display: flex;
+    flex-shrink: 0;
 }
 
 .contacts-main {
@@ -166,12 +167,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
+    
 }
 
 .chat-2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+    
 }
 
 .message {
@@ -183,9 +187,11 @@ body {
     padding: 10px;
     position: relative;
     padding: 15px;
+    
+}
+.bg-green{
     background: rgb(222, 248, 192);
 }
-
 .message-background {
     background: white;
 }
@@ -252,6 +258,7 @@ body {
 
     .list-name {
         display: none;
+        cursor: pointer;
     }
 
 
