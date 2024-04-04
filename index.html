@@ -48,9 +48,10 @@
                 </div>
             </section>
             <section class="section-contacts">
-                <div v-for="(contact,i) in contacts" @click="currentChat = i" class="contacts">
-                    <img class="img" :src="contact.avatar" alt="">
-                    <ul  class="list-name">
+                <div v-for="(contact,i) in contacts" @click="currentChat = i" class="contacts"
+                :class="i === currentChat ? 'bg-gray':''">
+                    <img class="img"  :src="contact.avatar" alt="">
+                    <ul class="list-name">
                         <li><strong> {{ contact.name }} </strong></li>
                         <li>Lorem ipsum, dolor sit</li>
                     </ul>
@@ -135,12 +136,15 @@
 
             </section>
             <section class="main">
-                <div  :class="message.status === 'sent' ? 'chat':'chat-2'":  v-for="(message,i) in contacts[currentChat].messages">
+                <div :class="message.status === 'sent' ? 'chat':'chat-2'" :
+                    v-for="(message,i) in contacts[currentChat].messages">
                     <div class="message" :class="message.status ==='sent' ? 'bg-green':'message-background'">
                         <p>
                             {{message.message}}
                         </p>
-                        <span class="time-chat">16:30</span>
+                        <span class="time-chat">
+                            {{ message.date.slice(11,16) }}
+                        </span>
                     </div>
                 </div>
                 <!-- <div class="chat-2">
@@ -159,7 +163,7 @@
             </section>
             <section class="footer">
                 <i class="fa-regular fa-face-smile"></i>
-                <input class="input-footer" type="text" placeholder="Scrivi un messaggio">
+                <input v-model="keyEnter" v-on:keyup.enter="keyElement()" class="input-footer" type="text" placeholder="Scrivi un messaggio">
                 <i class="fa-solid fa-microphone"></i>
             </section>
 

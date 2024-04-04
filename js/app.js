@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            currentChat : 0,
+            currentChat: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -173,16 +173,25 @@ createApp({
                             }
                         ],
                 },
-                
-            ]
+
+            ],
+            keyEnter: ''
         }
-        
-        
-    },
-    methods:{
+
 
     },
-    mounted(){
-        console.log(contacts[0].messages.status);
+    methods: {
+        keyElement() {
+            if (this.keyEnter !== '') {
+                this.keyEnter = {
+                    date: '10/01/2020 17:51:00',
+                    message: this.keyEnter,
+                    status:'sent',
+                }
+                this.contacts[this.currentChat].messages.push(this.keyEnter)
+                this.keyEnter = ''
+            }
+        }
     }
+   
 }).mount('#app')

@@ -16,6 +16,9 @@ menu {
     list-style: none;
 
 }
+.bg-gray{
+    background: lightgray;
+}
 
 a {
     text-decoration: none;
