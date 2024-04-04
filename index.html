@@ -44,12 +44,13 @@
             <section class="section-search">
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>Cerca o inizia una nuova chat</span>
+                    <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
             </section>
-            <section class="section-contacts">
+            <section class="section-contacts ">
                 <div v-for="(contact,i) in contacts" @click="currentChat = i" class="contacts"
-                :class="i === currentChat ? 'bg-gray':''">
+                :class="contact.name.includes(search.toUpperCase()) ? '':'d-none'"
+                :class="i === currentChat ? 'bg-gray':''" >
                     <img class="img"  :src="contact.avatar" alt="">
                     <ul class="list-name">
                         <li><strong> {{ contact.name }} </strong></li>

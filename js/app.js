@@ -175,7 +175,8 @@ createApp({
                 },
 
             ],
-            keyEnter: ''
+            keyEnter: '',
+            search:''
         }
 
 
