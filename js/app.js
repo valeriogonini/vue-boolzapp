@@ -190,8 +190,18 @@ createApp({
                 }
                 this.contacts[this.currentChat].messages.push(this.keyEnter)
                 this.keyEnter = ''
+                setTimeout(()=>{
+                    this.keyEnter = {
+                        message:'OK!',
+                        date:'20/03/2020 17:51:55',
+                        status:'received'
+                    }
+                    this.contacts[this.currentChat].messages.push(this.keyEnter)
+                    this.keyEnter=''
+                },1000)
             }
-        }
+        },
+        
     }
    
 }).mount('#app')
